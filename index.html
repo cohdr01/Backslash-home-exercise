@@ -1,0 +1,105 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Train Ticket Graph</title>
+        <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    </head>
+    <body>
+        <h1>Filtered Graph</h1>
+        <div class="mermaid">
+graph TD
+travel_service[travel-service]
+seat_service[seat-service]
+order_service[order-service]
+prod_postgresdb[prod-postgresdb]
+security_service[security-service]
+inside_payment_service[inside-payment-service]
+admin_user_service[admin-user-service]
+user_service[user-service]
+auth_service[auth-service]
+rebook_service[rebook-service]
+travel2_service[travel2-service]
+preserve_service[preserve-service]
+food_service[food-service]
+cancel_service[cancel-service]
+admin_travel_service[admin-travel-service]
+route_plan_service[route-plan-service]
+travel_plan_service[travel-plan-service]
+execute_service[execute-service]
+preserve_other_service[preserve-other-service]
+admin_order_service[admin-order-service]
+wait_order_service[wait-order-service]
+travel_service --> seat_service
+seat_service --> order_service
+order_service --> prod_postgresdb
+security_service --> order_service
+inside_payment_service --> order_service
+admin_user_service --> user_service
+user_service --> auth_service
+auth_service --> prod_postgresdb
+rebook_service --> seat_service
+rebook_service --> travel_service
+rebook_service --> travel2_service
+rebook_service --> order_service
+rebook_service --> inside_payment_service
+travel2_service --> seat_service
+preserve_service --> seat_service
+preserve_service --> user_service
+preserve_service --> security_service
+preserve_service --> travel_service
+preserve_service --> order_service
+preserve_service --> food_service
+food_service --> travel_service
+cancel_service --> order_service
+cancel_service --> inside_payment_service
+cancel_service --> user_service
+admin_travel_service --> travel_service
+admin_travel_service --> travel2_service
+route_plan_service --> travel_service
+route_plan_service --> travel2_service
+travel_plan_service --> seat_service
+travel_plan_service --> route_plan_service
+travel_plan_service --> travel_service
+travel_plan_service --> travel2_service
+execute_service --> order_service
+preserve_other_service --> seat_service
+preserve_other_service --> user_service
+preserve_other_service --> security_service
+preserve_other_service --> food_service
+preserve_other_service --> travel2_service
+admin_order_service --> order_service
+wait_order_service --> order_service
+classDef publicExposed fill:#00ff00
+classDef vulnerable fill:#ff0000
+classDef nonService fill:#ffff00
+classDef service fill:#add8e6
+class travel_service service
+class seat_service service
+class order_service vulnerable
+class prod_postgresdb nonService
+class security_service service
+class inside_payment_service service
+class admin_user_service service
+class user_service service
+class auth_service vulnerable
+class rebook_service service
+class travel2_service service
+class preserve_service service
+class food_service service
+class cancel_service service
+class admin_travel_service service
+class route_plan_service service
+class travel_plan_service service
+class execute_service service
+class preserve_other_service service
+class admin_order_service service
+class wait_order_service service
+
+        </div>
+    </body>
+    </html>
+    
